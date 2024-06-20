@@ -1,5 +1,7 @@
 package Model.Class;
 
+import java.util.List;
+
 import Model.Enum.RoomStatus;
 
 public class Room {
@@ -9,7 +11,8 @@ public class Room {
     private double price;
     private int capacity;
     private RoomStatus status;
-    
+    private List<Reservation> listReservations;
+
     public int getRoomNumber() {
         return roomNumber;
     }
@@ -40,7 +43,11 @@ public class Room {
     public void setStatus(RoomStatus status) {
         this.status = status;
     }
-
-    
+    public List<Reservation> getListReservations() {
+        return listReservations;
+    }
+    public void setListReservations(List<Reservation> listReservations) {
+        this.listReservations = listReservations;
+    }
 
 }

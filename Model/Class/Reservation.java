@@ -7,6 +7,7 @@ public class Reservation {
     private int IDReservation;
     private int stayDay;
     private ReservationStatus status;
+    private Payment payment;
 
     public int getIDReservation() {
         return IDReservation;
@@ -25,6 +26,12 @@ public class Reservation {
     }
     public void setStatus(ReservationStatus status) {
         this.status = status;
+    }
+    public Payment getPayment() {
+        return payment;
+    }
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
 }
