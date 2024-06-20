@@ -8,6 +8,12 @@ public class Payment {
     private double amount;
     private Date transactionDate;
 
+    public Payment(int transactionNumber, double amount, Date transactionDate) {
+        this.transactionNumber = transactionNumber;
+        this.amount = amount;
+        this.transactionDate = transactionDate;
+    }
+    
     public int getTransactionNumber() {
         return transactionNumber;
     }
@@ -27,7 +33,7 @@ public class Payment {
         this.transactionDate = transactionDate;
     }
     public void processPayment() {
-        
+
     }
 
 }

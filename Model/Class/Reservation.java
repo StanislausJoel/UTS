@@ -41,7 +41,7 @@ public class Reservation {
         this.room = room;
     }    
     public void cancelBooking() {
-        this.room = null;
+        this.status = ReservationStatus.CANCELLED;
     }    
     public RoomStatus checkAvailability() {
         return this.room.getStatus();

@@ -2,12 +2,14 @@ package Controller;
 
 import java.util.List;
 
+import Model.Class.CardPayment;
 import Model.Class.Customer;
 import Model.Class.Member;
+import Model.Class.OnlinePayment;
+import Model.Class.Payment;
 import Model.Class.Reservation;
 import Model.Class.Room;
 import Model.Enum.CustomerType;
-import Model.Enum.ReservationStatus;
 import Model.Enum.RoomStatus;
 import Model.Enum.RoomType;
 
@@ -16,6 +18,7 @@ public class Controller {
     public static List<Customer> listCustomers;
     public static List<Room> listRoom;
     public static List<Reservation> listReservations;
+    public static List<Payment> listPayments;
     
     public void createDummy() {
 
@@ -61,6 +64,48 @@ public class Controller {
 
     }
 
-       
+    public static double processPayment(Reservation reservation, String paymentType) {
+
+        double total = 0;
+        double amount = reservation.getStayDay() * reservation.getRoom().getPrice();
+
+        if (reservation.getCustomer() instanceof Member) {
+            
+            if (paymentType.equalsIgnoreCase("CREDIT CARD")) {
+                
+                Payment payment = new CardPayment(0, amount, null, "Card_Type", "Card_Number");
+
+            }
+            else {
+
+                Payment payment = new OnlinePayment(0, amount, null, "Bank_Name");
+
+            }
+
+            Member user = (Member) reservation.getCustomer();
+            
+            if (user.getBalance() < amount) {
+                
+                user.setBalance(0);
+
+            }
+            else {
+
+                
+
+            }
+            double newBalance = user.getBalance() - amount;
+            
+
+        }
+        else {
+
+            
+
+        }
+
+        return total;
+
+    }
 
 }

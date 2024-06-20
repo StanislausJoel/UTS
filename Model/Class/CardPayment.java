@@ -1,10 +1,18 @@
 package Model.Class;
 
+import java.sql.Date;
+
 public class CardPayment extends Payment {
     
     private String cardType;
     private String cardNumber;
 
+    public CardPayment(int transactionNumber, double amount, Date transactionDate, String cardType, String cardNumber) {
+        super(transactionNumber, amount, transactionDate);
+        this.cardType = cardType;
+        this.cardNumber = cardNumber;
+    }
+    
     public String getCardType() {
         return cardType;
     }
