@@ -4,7 +4,7 @@ public class CardPayment extends Payment {
     
     private String cardType;
     private String cardNumber;
-    
+
     public String getCardType() {
         return cardType;
     }
@@ -16,6 +16,11 @@ public class CardPayment extends Payment {
     }
     public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
+    }
+
+    @Override
+    public void processPayment() {
+        
     }
 
 }

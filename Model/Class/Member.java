@@ -6,7 +6,7 @@ public class Member extends Customer{
     
     private double balance;
     private CustomerType type;
-    
+
     public double getBalance() {
         return balance;
     }

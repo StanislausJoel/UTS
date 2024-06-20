@@ -26,5 +26,8 @@ public class Payment {
     public void setTransactionDate(Date transactionDate) {
         this.transactionDate = transactionDate;
     }
+    public void processPayment() {
+        
+    }
 
 }

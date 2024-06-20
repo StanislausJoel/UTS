@@ -1,8 +1,7 @@
 package Model.Class;
 
-import java.util.List;
-
 import Model.Enum.RoomStatus;
+import Model.Enum.RoomType;
 
 public class Room {
     
@@ -11,7 +10,16 @@ public class Room {
     private double price;
     private int capacity;
     private RoomStatus status;
-    private List<Reservation> listReservations;
+    private RoomType type; // untuk meng kategori tiap kamar
+
+    public Room(int roomNumber, int floor, double price, int capacity, RoomStatus status, RoomType type) {
+        this.roomNumber = roomNumber;
+        this.floor = floor;
+        this.price = price;
+        this.capacity = capacity;
+        this.status = status;
+        this.type = type;
+    }
 
     public int getRoomNumber() {
         return roomNumber;
@@ -43,11 +51,11 @@ public class Room {
     public void setStatus(RoomStatus status) {
         this.status = status;
     }
-    public List<Reservation> getListReservations() {
-        return listReservations;
+    public RoomType getType() {
+        return type;
     }
-    public void setListReservations(List<Reservation> listReservations) {
-        this.listReservations = listReservations;
+    public void setType(RoomType type) {
+        this.type = type;
     }
 
 }
