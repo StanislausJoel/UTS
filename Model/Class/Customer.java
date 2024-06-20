@@ -7,6 +7,13 @@ public class Customer {
     private String email;
     private String company;
 
+    public Customer(int iDCustomer, String name, String email, String company) {
+        IDCustomer = iDCustomer;
+        this.name = name;
+        this.email = email;
+        this.company = company;
+    }
+    
     public int getIDCustomer() {
         return IDCustomer;
     }
