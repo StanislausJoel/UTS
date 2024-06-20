@@ -10,6 +10,7 @@ import Model.Class.Payment;
 import Model.Class.Reservation;
 import Model.Class.Room;
 import Model.Enum.CustomerType;
+import Model.Enum.ReservationStatus;
 import Model.Enum.RoomStatus;
 import Model.Enum.RoomType;
 
@@ -134,6 +135,8 @@ public class Controller {
             total = amount;            
 
         }
+
+        reservation.setStatus(ReservationStatus.PAID);
 
         return total;
 
