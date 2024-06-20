@@ -10,8 +10,6 @@ public class MainMenu {
 
         this.controller = controller;
 
-    }
-
-        
+    }   
 
 }
