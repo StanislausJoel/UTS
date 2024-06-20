@@ -113,10 +113,39 @@ public class Controller {
 
             total = (byCard + byBalance) * charge;
 
+            double basePercentage = 0;
+
+            if (user.getType() == CustomerType.REG) {
+                
+                basePercentage = 1.25;
+                
+            }
+            else {
+                
+                basePercentage = 1.1;
+                
+            }
+            
+            user.setBalance(user.getBalance() + total * basePercentage);
+
         }
         else {
 
+            total = amount;            
+
+        }
+
+        return total;
+
+    }
+
+    public static double calculateTotalRevenue() {
+
+        double total = 0;
+
+        for (Payment payment : listPayments) {
             
+            total += payment.getAmount();
 
         }
 
