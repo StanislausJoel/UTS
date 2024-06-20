@@ -71,14 +71,23 @@ public class Controller {
 
         if (reservation.getCustomer() instanceof Member) {
             
+            double charge = 1;
+            double byBalance = 0;
+            double byCard = 0;
+
             if (paymentType.equalsIgnoreCase("CREDIT CARD")) {
                 
                 Payment payment = new CardPayment(0, amount, null, "Card_Type", "Card_Number");
+                charge = 1.02;
+
+                listPayments.add(payment);
 
             }
             else {
 
                 Payment payment = new OnlinePayment(0, amount, null, "Bank_Name");
+
+                listPayments.add(payment);
 
             }
 
@@ -87,15 +96,22 @@ public class Controller {
             if (user.getBalance() < amount) {
                 
                 user.setBalance(0);
+                byCard = amount - user.getBalance();
+                byBalance = amount;
 
             }
             else {
 
-                
+                byBalance = user.getBalance() - amount;
+                user.setBalance(byBalance);
 
             }
-            double newBalance = user.getBalance() - amount;
-            
+
+            System.out.println("Payment by balance : " + byBalance);
+            System.out.println("Payment by Card : " + byCard);
+            System.out.println("Charge : " + (byCard + byBalance) * 0.02);
+
+            total = (byCard + byBalance) * charge;
 
         }
         else {
